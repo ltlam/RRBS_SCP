@@ -191,6 +191,9 @@ ggplot(mdata,aes(x = Sample, y = Methylation))+ geom_violin() +xlab("Sample")+yl
 
 <div style="text-align:center"><img src ="https://github.com/ltlam/RRBS_SOR/blob/master/images/cpg_meth_dist_violin.pdf"/></div>
 
+![Image of CpG Violin Plot]
+(https://github.com/ltlam/RRBS_SOR/blob/master/images/cpg_meth_dist_violin.pdf)
+
 ### 3. Generate Sample Dendrogram in [R]
 
 ```
@@ -202,6 +205,9 @@ plot(as.dendrogram(dSpear.tree),horiz=T,cex.lab=1, cex.axis=1, cex.main=0.5, cex
 ```
 
 <div style="text-align:center"><img src ="https://github.com/ltlam/RRBS_SOR/blob/master/images/cpg_dendrogram.pdf"/></div>
+
+![Image of CpG Dendrogram]
+(https://github.com/ltlam/RRBS_SOR/blob/master/images/cpg_dendrogram.pdf)
 
 ## RRBS Fragment Methylation
 
