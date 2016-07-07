@@ -189,10 +189,8 @@ colnames(mdata) = c("Sample","Methylation")
 ggplot(mdata,aes(x = Sample, y = Methylation))+ geom_violin() +xlab("Sample")+ylab("CpG Methylation Level")+ggtitle("") + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank(), axis.line = element_line(colour = "black"))+ylim(0, 1.105)+theme(axis.text.x = element_text(angle = 60, hjust = 1))
 ```
 
-<div style="text-align:center"><img src ="https://github.com/ltlam/RRBS_SOR/blob/master/images/cpg_meth_dist_violin.pdf"/></div>
-
 ![Image of CpG Violin Plot]
-(https://github.com/ltlam/RRBS_SOR/blob/master/images/cpg_meth_dist_violin.pdf)
+(https://github.com/ltlam/RRBS_SOR/blob/master/images/cpg_meth_dist_violin.png)
 
 ### 3. Generate Sample Dendrogram in [R]
 
@@ -204,10 +202,8 @@ par(cex=0.8,font=2,mar=c(3,1,1,12))
 plot(as.dendrogram(dSpear.tree),horiz=T,cex.lab=1, cex.axis=1, cex.main=0.5, cex.sub=0.5)
 ```
 
-<div style="text-align:center"><img src ="https://github.com/ltlam/RRBS_SOR/blob/master/images/cpg_dendrogram.pdf"/></div>
-
 ![Image of CpG Dendrogram]
-(https://github.com/ltlam/RRBS_SOR/blob/master/images/cpg_dendrogram.pdf)
+(https://github.com/ltlam/RRBS_SOR/blob/master/images/cpg_dendrogram.png)
 
 ## RRBS Fragment Methylation
 
