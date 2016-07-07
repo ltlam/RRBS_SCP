@@ -77,7 +77,7 @@ This step assumes you have setup both <a href="https://github.com/BSSeeker/BSsee
 ```
 python bs_seeker2-align.py -i TBS_14A_chr19.fastq -m 5 --aligner=bowtie2 --bt2--end-to-end -o TBS_14A_chr19.bam -f bam -g hg19_tb.fa -r --low=40 --up=500 -a adapter.txt
 python bs_seeker2-align.py -i TBS_14B_chr19.fastq -m 5 --aligner=bowtie2 --bt2--end-to-end -o TBS_14B_chr19.bam -f bam -g hg19_tb.fa -r --low=40 --up=500 -a adapter.txt
-python bs_seeker2-align.py -i TBS_18C_chr19.fastq -m 5 --aligner=bowtie2 --bt2--end-to-end -o TBS_18C_chr19.fastq -f bam -g hg19_tb.fa -r --low=40 --up=500 -a adapter.txt
+python bs_seeker2-align.py -i TBS_18C_chr19.fastq -m 5 --aligner=bowtie2 --bt2--end-to-end -o TBS_18C_chr19.bam -f bam -g hg19_tb.fa -r --low=40 --up=500 -a adapter.txt
 python bs_seeker2-align.py -i TBS_26A_chr19.fastq -m 5 --aligner=bowtie2 --bt2--end-to-end -o TBS_26A_chr19.bam -f bam -g hg19_tb.fa -r --low=40 --up=500 -a adapter.txt
 python bs_seeker2-align.py -i TBS_50A_chr19.fastq -m 5 --aligner=bowtie2 --bt2--end-to-end -o TBS_50A_chr19.bam -f bam -g hg19_tb.fa -r --low=40 --up=500 -a adapter.txt
 ```
