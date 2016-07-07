@@ -1,9 +1,9 @@
 # RRBS SCP
-git@github.com:ltlam/RRBS_SCP.git
+<a href="https://github.com/ltlam/RRBS_SCP"target="_blank">https://github.com/ltlam/RRBS_SCP</a>
 
 ## Introduction
 
-This guide provides steps for performing alignment and sample QC visualization of MspI digested RRBS reads.
+This guide provides steps for performing alignment and sample visualization of MspI digested RRBS reads.
 
   * Convert qseq to fastq
   * BSseeker2 alignment & methylation calling
@@ -27,7 +27,7 @@ This guide provides steps for performing alignment and sample QC visualization o
 
 ### Data
 
-The sample data were extracted from MspI digested human RRBS reads that have been demultiplexed that will align chr19.
+The sample files were extracted from MspI digested human RRBS reads that have been demultiplexed. Each file contains reads from chr19.
 
   * /data/TBS\_14A_chr19.qseq.gz
   * /data/TBS\_14B_chr19.qseq.gz
