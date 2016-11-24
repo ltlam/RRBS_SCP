@@ -127,40 +127,40 @@ python bam_to_cov.py -r RRBS_mappable_regions_chr19.txt -b TBS_50A_chr19.bam_sor
   </tr>
   <tr>
     <td>TBS_14A_chr19.bam_sorted.bam.cov</td>
-    <td>75326058</td> 
+    <td>76001603</td>
     <td>12251172</td>
-    <td>6.148478</td>
+    <td>6.203619</td>
   </tr>
   <tr>
     <td>TBS_14B_chr19.bam_sorted.bam.cov</td>
-    <td>73314081</td> 
+    <td>74028635</td>
     <td>12251172</td>
-    <td>5.984250</td>
+    <td>6.042576</td>
   </tr>
   <tr>
     <td>TBS_18C_chr19.bam_sorted.bam.cov</td>
-    <td>93868958</td> 
+    <td>94881136</td>
     <td>12251172</td>
-    <td>7.662039</td>
+    <td>7.744658</td>
   </tr>
   <tr>
     <td>TBS_26A_chr19.bam_sorted.bam.cov</td>
-    <td>113627593</td> 
+    <td>114096854</td>
     <td>12251172</td>
-    <td>9.274835</td>
+    <td>9.313138</td>
   </tr>
   <tr>
     <td>TBS_50A_chr19.bam_sorted.bam.cov</td>
-    <td>25622438</td> 
+    <td>26082039</td>
     <td>12251172</td>
-    <td>2.091427</td>
+    <td>2.128942</td>
   </tr>
 </table>
 
 ## Sample Methylation Distribution & Dendrogram Using [R]
 This step visualizes the methylation distribution across samples at common CpG sites with a minimum of 4x coverage.
 
-### 0. gunzip CGmap files
+### 0. gunzip CGmap files (BSSeeker2 methylation level file https://github.com/BSSeeker/BSseeker2)
 
 ```
 gunzip *.CGmap.gz
