@@ -160,7 +160,19 @@ python bam_to_cov.py -r RRBS_mappable_regions_chr19.txt -b TBS_50A_chr19.bam_sor
 ## Sample Methylation Distribution & Dendrogram Using [R]
 This step visualizes the methylation distribution across samples at common CpG sites with a minimum of 4x coverage.
 
-### 0. gunzip CGmap files (BSSeeker2 methylation level file https://github.com/BSSeeker/BSseeker2)
+### 0. gunzip tab delimeted plain text CGmap files (BSSeeker2 methylation level file https://github.com/BSSeeker/BSseeker2)
+```
+CGmap Column description:
+
+(1) chromosome
+(2) nucleotide on Watson (+) strand
+(3) position
+(4) context (CG/CHG/CHH)
+(5) dinucleotide-context (CA/CC/CG/CT)
+(6) methylation-level = #_of_C / (#_of_C + #_of_T).
+(7) #_of_C (methylated C, the count of reads showing C here)
+(8) = #_of_C + #_of_T (all Cytosines, the count of reads showing C or T here)
+```
 
 ```
 gunzip *.CGmap.gz
