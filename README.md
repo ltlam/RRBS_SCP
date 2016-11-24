@@ -182,7 +182,7 @@ python cgmap_data_frame.py -in_sam TBS_14A_chr19.CGmap,TBS_14B_chr19.CGmap,TBS_1
 ```
 library(ggplot2)
 library(reshape2)
-meth_df = read.table("TBS_Common_Meth.csv",header=TRUE,sep='\t',row.names=1)
+meth_df = read.table("TBS_Common_Meth.txt",header=TRUE,sep='\t',row.names=1)
 labels = gsub("_chr19$","",colnames(meth_df))
 colnames(meth_df) = labels
 mdata <- reshape2::melt(meth_df, id.vars = NULL)
