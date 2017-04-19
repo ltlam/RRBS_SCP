@@ -58,7 +58,9 @@ def load_pos_fcgmap(str_comm_cgmap):
             b_is_header = False
             continue
         lcols = str_line.rstrip().split('\t')
-        str_chr, str_pos = lcols[0].split('_')
+        l_chr_lbls = lcols[0].split('_')
+        str_chr = '_'.join(l_chr_lbls[:-1])
+        str_pos = l_chr_lbls[-1]
         n_chr = chrlbl_to_num(str_chr)
         n_pos = int(str_pos)
         l_pos.append((n_pos,n_chr,n_pos,n_chr))
