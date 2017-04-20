@@ -23,11 +23,11 @@ def test_bbox():
         print '%d'%lval[0]
     '''
 
-def chrlbl_to_num(str_chr,l_chr_lbl):
-    n_chr_id = 0
+def chrlbl_to_num(str_chr,l_chr_lbl,loading=True):
+    n_chr_id = -1
     if str_chr in l_chr_lbl:
         n_chr_id = l_chr_lbl.index(str_chr)
-    else:
+    elif loading:
         l_chr_lbl.append(str_chr)
         n_chr_id = len(l_chr_lbl)
     return n_chr_id
@@ -41,7 +41,7 @@ def load_mappable(str_mappable_file,l_chr_lbl):
     frag_idx = index.Index()
     for str_line in open(str_mappable_file,'r'):
         lcols = str_line.rstrip().split('\t')
-        n_chr = chrlbl_to_num(lcols[0],l_chr_lbl)
+        n_chr = chrlbl_to_num(lcols[0],l_chr_lbl,loading=True)
         n_frag_id = int(lcols[1])
         n_start = int(lcols[2])+1
         n_end = int(lcols[3])+1
@@ -60,19 +60,14 @@ def load_pos_fcgmap(str_comm_cgmap,l_chr_lbl):
         l_chr_lbls = lcols[0].split('_')
         str_chr = '_'.join(l_chr_lbls[:-1])
         str_pos = l_chr_lbls[-1]
-        n_chr = chrlbl_to_num(str_chr,l_chr_lbl)
+        n_chr = chrlbl_to_num(str_chr,l_chr_lbl,loading=False)
         n_pos = int(str_pos)
+        if n_chr == -1:
+            print 'warning sample chr label %s not in region file'%(str_chr)
+            continue
+
         l_pos.append((n_pos,n_chr,n_pos,n_chr))
     fin.close()
-    return l_pos
-
-def load_comm_pos(str_pos,l_chr_lbl):
-    l_pos = []
-    for str_line in open(str_pos):
-        lcols = str_line.rstrip().split(' ')
-        n_chr = chrlbl_to_num(lcols[0],l_chr_lbl)
-        n_pos = int(lcols[1])
-        l_pos.append((n_pos,n_chr,n_pos,n_chr))
     return l_pos
 
 def get_pos_to_frag(frag_idx,lpos,l_chr_lbl):
@@ -99,8 +94,11 @@ def proc_fcgmap(d_pos_to_frag,str_fcgmap,str_out):
             fout.write('\t'.join(lcols[0:1])+'\tFRAG\t'+'\t'.join(lcols[1:])+'\n')
             b_header = False
         else:
-            str_frag = d_pos_to_frag[lcols[0]]
-            fout.write('\t'.join(lcols[0:1])+'\t'+str_frag+'\t'+'\t'.join(lcols[1:])+'\n')
+            if not d_pos_to_frag.has_key(lcols[0]):
+                print '%s not detected'%(lcols[0])
+            else:
+                str_frag = d_pos_to_frag[lcols[0]]
+                fout.write('\t'.join(lcols[0:1])+'\t'+str_frag+'\t'+'\t'.join(lcols[1:])+'\n')
     fout.close()
 
 
@@ -108,7 +106,6 @@ def proc_fcgmap(d_pos_to_frag,str_fcgmap,str_out):
 #----------------------------------------------------------------------------
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('-p', '--pos', type=str, help="comm position file",default='')
     parser.add_argument('-m', '--mappable', type=str, help="mappable regions file")
     parser.add_argument('-f', '--fcgmap', type=str, help="sample methylation matrix")
     args = parser.parse_args()
@@ -120,10 +117,7 @@ if __name__ == '__main__':
     frag_idx = load_mappable(args.mappable,l_chr_lbls)
 
     lpos = []
-    if args.pos == '':
-        lpos = load_pos_fcgmap(args.fcgmap,l_chr_lbls)
-    else:
-        lpos = load_comm_pos(args.pos)
+    lpos = load_pos_fcgmap(args.fcgmap,l_chr_lbls)
 
     d_pos_to_frag = get_pos_to_frag(frag_idx,lpos,l_chr_lbls)
 
